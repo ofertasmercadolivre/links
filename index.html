@@ -11,30 +11,53 @@
         h1 { font-size: 1.4rem; margin-bottom: 5px; font-weight: 800; color: #1a1a1a; }
         p { margin-bottom: 25px; color: #666; font-size: 0.9rem; }
         
-        .btn { display: block; padding: 16px; margin-bottom: 12px; text-decoration: none; color: white; font-weight: bold; border-radius: 12px; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.85rem; }
-        .btn:active { transform: scale(0.96); }
-
-        /* Cores dos Nichos */
-        .auto { background-color: #1a1a1a; }      /* Automotivo */
-        .cozinha { background-color: #f39c12; }   /* Cozinha */
-        .tech { background-color: #2980b9; }      /* Tecnologia */
-        .games { background-color: #34495e; }     /* Games (Novo) */
-        .beleza { background-color: #e84393; }    /* Beleza */
-        .smart { background-color: #6c5ce7; }     /* Smart Home */
+        .section-title { font-size: 1rem; font-weight: bold; margin: 20px 0 10px; text-align: left; border-left: 4px solid #1a1a1a; padding-left: 10px; display: flex; align-items: center; }
+        
+        .btn-group { display: flex; gap: 8px; margin-bottom: 12px; }
+        .btn { flex: 1; padding: 14px 5px; text-decoration: none; color: white; font-weight: bold; border-radius: 10px; transition: 0.2s; font-size: 0.75rem; display: flex; align-items: center; justify-content: center; text-transform: uppercase; }
+        
+        /* Cores das Plataformas */
+        .ml { background-color: #3483fa; } /* Azul Mercado Livre */
+        .shopee { background-color: #ee4d2d; } /* Laranja Shopee */
+        
+        .btn:active { transform: scale(0.95); }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="logo-box">📦</div>
         <h1>CURADORIA OFERTAS BR</h1>
-        <p>Os melhores achadinhos do Mercado Livre 🛒</p>
-        
-        <a href="#" class="btn auto">🚗 Acessórios Automotivos</a>
-        <a href="#" class="btn cozinha">🥘 Cozinha Criativa</a>
-        <a href="#" class="btn tech">💻 Tecnologia & Setup</a>
-        <a href="#" class="btn games">🎮 Mundo Gamer & Consoles</a>
-        <a href="#" class="btn beleza">🧴 Beleza & Bem-Estar</a>
-        <a href="#" class="btn smart">🏠 Casa Inteligente</a>
+        <p>Compare e economize nos melhores achados 🇧🇷</p>
+
+        <div class="section-title">🚗 AUTOMOTIVO</div>
+        <div class="btn-group">
+            <a href="#" class="btn ml">Mercado Livre</a>
+            <a href="#" class="btn shopee">Shopee</a>
+        </div>
+
+        <div class="section-title">🛠️ FERRAMENTAS</div>
+        <div class="btn-group">
+            <a href="#" class="btn ml">Mercado Livre</a>
+            <a href="#" class="btn shopee">Shopee</a>
+        </div>
+
+        <div class="section-title">🥘 COZINHA CRIATIVA</div>
+        <div class="btn-group">
+            <a href="#" class="btn ml">Mercado Livre</a>
+            <a href="#" class="btn shopee">Shopee</a>
+        </div>
+
+        <div class="section-title">🎮 MUNDO GAMER</div>
+        <div class="btn-group">
+            <a href="#" class="btn ml">Mercado Livre</a>
+            <a href="#" class="btn shopee">Shopee</a>
+        </div>
+
+        <div class="section-title">💻 TECH & SETUP</div>
+        <div class="btn-group">
+            <a href="#" class="btn ml">Mercado Livre</a>
+            <a href="#" class="btn shopee">Shopee</a>
+        </div>
     </div>
 </body>
 </html>
