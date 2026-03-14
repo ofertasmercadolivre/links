@@ -5,24 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curadoria Ofertas BR</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; background-color: #f0f2f5; margin: 0; padding: 20px; color: #333; }
-        .container { max-width: 450px; margin: auto; }
-        .logo-box { background-color: #ffe600; width: 80px; height: 80px; margin: 0 auto 15px; border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        h1 { font-size: 1.4rem; margin-bottom: 5px; font-weight: 800; color: #1a1a1a; }
-        p { margin-bottom: 25px; color: #666; font-size: 0.9rem; }
-        
-        .btn { display: block; padding: 16px; margin-bottom: 12px; text-decoration: none; color: white; font-weight: bold; border-radius: 12px; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.85rem; }
-        .btn:active { transform: scale(0.96); }
+    body { 
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        text-align: center; 
+        /* Fundo Gradiente Cinza Escuro para destacar os botões */
+        background: linear-gradient(135deg, #f0f2f5 0%, #c3cfe2 100%);
+        background-attachment: fixed;
+        margin: 0; 
+        padding: 20px; 
+        color: #333; 
+    }
+    
+    /* Se você quiser usar uma imagem de fundo real, use o código abaixo no lugar do 'background' acima:
+    background-image: url('https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80&w=1000');
+    background-size: cover;
+    */
 
-        /* Cores dos Nichos */
-        .auto { background-color: #1a1a1a; }      /* Preto */
-        .ferramentas { background-color: #2c3e50; } /* Cinza Azulado */
-        .smartphones { background-color: #000000; } /* Preto Sólido (Premium) */
-        .cozinha { background-color: #f39c12; }   /* Laranja */
-        .tech { background-color: #2980b9; }      /* Azul */
-        .games { background-color: #8e44ad; }     /* Roxo */
-        .smart { background-color: #27ae60; }     /* Verde */
-    </style>
+    .container { 
+        max-width: 450px; 
+        margin: auto; 
+        background: rgba(255, 255, 255, 0.8); /* Fundo branco semi-transparente para o conteúdo */
+        padding: 30px 20px;
+        border-radius: 30px;
+        backdrop-filter: blur(10px); /* Efeito de vidro fosco */
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    
+    .logo-box { background-color: #ffe600; width: 80px; height: 80px; margin: 0 auto 15px; border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    h1 { font-size: 1.4rem; margin-bottom: 5px; font-weight: 800; color: #1a1a1a; }
+    p { margin-bottom: 25px; color: #666; font-size: 0.9rem; }
+    
+    .btn { display: block; padding: 16px; margin-bottom: 12px; text-decoration: none; color: white; font-weight: bold; border-radius: 12px; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.85rem; }
+    .btn:active { transform: scale(0.96); }
+
+    .smartphones { background-color: #000000; }
+    .auto { background-color: #1a1a1a; }
+    .ferramentas { background-color: #2c3e50; }
+    .cozinha { background-color: #f39c12; }
+    .tech { background-color: #2980b9; }
+    .games { background-color: #8e44ad; }
+    .smart { background-color: #27ae60; }
+</style>
 </head>
 <body>
     <div class="container">
