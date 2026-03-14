@@ -5,61 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curadoria Ofertas BR</title>
     <style>
-    body { 
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-        text-align: center; 
-        /* Fundo Gradiente Cinza Escuro para destacar os botões */
-        background: linear-gradient(135deg, #f0f2f5 0%, #c3cfe2 100%);
-        background-attachment: fixed;
-        margin: 0; 
-        padding: 20px; 
-        color: #333; 
-    }
-    
-    /* Se você quiser usar uma imagem de fundo real, use o código abaixo no lugar do 'background' acima:
-    background-image: url('https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80&w=1000');
-    background-size: cover;
-    */
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 20px; 
+            color: #333; 
+            background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
 
-    .container { 
-        max-width: 450px; 
-        margin: auto; 
-        background: rgba(255, 255, 255, 0.8); /* Fundo branco semi-transparente para o conteúdo */
-        padding: 30px 20px;
-        border-radius: 30px;
-        backdrop-filter: blur(10px); /* Efeito de vidro fosco */
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
-    
-    .logo-box { background-color: #ffe600; width: 80px; height: 80px; margin: 0 auto 15px; border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-    h1 { font-size: 1.4rem; margin-bottom: 5px; font-weight: 800; color: #1a1a1a; }
-    p { margin-bottom: 25px; color: #666; font-size: 0.9rem; }
-    
-    .btn { display: block; padding: 16px; margin-bottom: 12px; text-decoration: none; color: white; font-weight: bold; border-radius: 12px; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.85rem; }
-    .btn:active { transform: scale(0.96); }
+        .container { 
+            max-width: 400px; 
+            width: 100%;
+            background: rgba(255, 255, 255, 0.7); 
+            padding: 35px 20px;
+            border-radius: 30px;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .logo-box { background-color: #ffe600; width: 70px; height: 70px; margin: 0 auto 15px; border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 35px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        h1 { font-size: 1.3rem; margin-bottom: 5px; font-weight: 800; color: #1a1a1a; text-transform: uppercase; text-align: center; }
+        p { margin-bottom: 30px; color: #555; font-size: 0.85rem; font-weight: 500; text-align: center; }
+        
+        .btn { 
+            display: block; 
+            padding: 16px; 
+            margin-bottom: 12px; 
+            text-decoration: none; 
+            color: white; 
+            font-weight: bold; 
+            border-radius: 15px; /* Cantos arredondados */
+            transition: transform 0.2s, box-shadow 0.2s; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
+            text-transform: uppercase; 
+            letter-spacing: 0.8px; 
+            font-size: 0.85rem;
+            text-align: center;
+        }
+        
+        .btn:active { transform: scale(0.96); }
 
-    .smartphones { background-color: #000000; }
-    .auto { background-color: #1a1a1a; }
-    .ferramentas { background-color: #2c3e50; }
-    .cozinha { background-color: #f39c12; }
-    .tech { background-color: #2980b9; }
-    .games { background-color: #8e44ad; }
-    .smart { background-color: #27ae60; }
-</style>
+        /* Cores das Seções */
+        .beleza { background-color: #e84393; }
+        .auto { background-color: #1a1a1a; }
+        .tech { background-color: #2980b9; }
+        .smartphones { background-color: #000000; }
+        .games { background-color: #8e44ad; }
+        .ferramentas { background-color: #2c3e50; }
+        .casa { background-color: #27ae60; }
+        .cozinha { background-color: #f39c12; }
+    </style>
 </head>
 <body>
     <div class="container">
         <div class="logo-box">📦</div>
         <h1>CURADORIA OFERTAS BR</h1>
-        <p>As melhores ofertas do Mercado Livre 🛒</p>
+        <p>Achados selecionados no Mercado Livre 🛒</p>
         
-        <a href="#" class="btn smartphones">📱 Smartphones & Celulares</a>
+        <a href="#" class="btn beleza">🧴 Beleza & Bem-Estar</a>
         <a href="#" class="btn auto">🚗 Acessórios Automotivos</a>
-        <a href="#" class="btn ferramentas">🛠️ Ferramentas & DIY</a>
-        <a href="#" class="btn cozinha">🥘 Cozinha Criativa</a>
         <a href="#" class="btn tech">💻 Tecnologia & Setup</a>
+        <a href="#" class="btn smartphones">📱 Smartphones & Celulares</a>
         <a href="#" class="btn games">🎮 Mundo Gamer</a>
-        <a href="#" class="btn smart">🏠 Casa Inteligente</a>
+        <a href="#" class="btn ferramentas">🛠️ Ferramentas & DIY</a>
+        <a href="#" class="btn casa">🏠 Casa Inteligente</a>
+        <a href="#" class="btn cozinha">🥘 Cozinha Criativa</a>
     </div>
 </body>
 </html>
