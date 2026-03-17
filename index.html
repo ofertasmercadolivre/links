@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curadoria Ofertas BR</title>
+    <title>Curadoria Ofertas BR | Alexandre Moura</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -25,7 +25,6 @@
             align-items: center;
         }
 
-        /* HEADER ESTILO MERCADO LIVRE (TRAVADO) */
         header {
             width: 100%;
             padding: 30px 0;
@@ -64,7 +63,6 @@
 
         .container { width: 92%; max-width: 430px; padding-bottom: 50px; }
 
-        /* PADRONIZAÇÃO DOS BOTÕES */
         .btn {
             display: flex;
             align-items: center;
@@ -78,61 +76,29 @@
             font-size: 0.95rem;
             transition: all 0.2s ease;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); /* Sombra nas letras brancas */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
             border: none;
         }
 
         .btn:active { transform: scale(0.96); filter: brightness(0.9); }
 
-        /* APLICAÇÃO DO ESTUDO DE CORES (GRADIENTE 80%) */
-        
-        /* 1. Autoridade: Azul Royal */
-        .btn-top { background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 80%); }
+        /* PALETA DE CORES (GRADIENTE 80%) */
+        .btn-top { background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 80%); } /* Azul Royal */
+        .datas-especiais { background: linear-gradient(90deg, #6b21a8 0%, #a855f7 80%); } /* Roxo Intenso */
+        .smartphones { background: linear-gradient(90deg, #0984e3 0%, #74b9ff 80%); } /* Ciano */
+        .tech { background: linear-gradient(90deg, #2d3436 0%, #636e72 80%); } /* Grafite */
+        .games { background: linear-gradient(90deg, #6c5ce7 0%, #a29bfe 80%); } /* Roxo/Azul */
+        .ferramentas { background: linear-gradient(90deg, #d35400 0%, #e67e22 80%); } /* Âmbar */
+        .auto { background: linear-gradient(90deg, #00b894 0%, #55efc4 80%); } /* Verde */
+        .cozinha { background: linear-gradient(90deg, #d63031 0%, #ff7675 80%); } /* Carmesim */
+        .casa { background: linear-gradient(90deg, #006266 0%, #1289A7 80%); } /* Petróleo */
+        .beleza { background: linear-gradient(90deg, #e84393 0%, #fd79a8 80%); } /* Pink */
+        .moda { background: linear-gradient(90deg, #2c3e50 0%, #34495e 80%); } /* Navy (Elegância) */
+        .esportes { background: linear-gradient(90deg, #15803d 0%, #22c55e 80%); } /* Verde Esportivo */
+        .bebe { background: linear-gradient(90deg, #0284c7 0%, #38bdf8 80%); } /* Azul Bebê */
+        .recomendacoes { background: linear-gradient(90deg, #b2bec3 0%, #dfe6e9 80%); color: #2d3436; text-shadow: none; }
 
-        /* 2. Urgência: Vermelho Intenso */
-        .relampago { background: linear-gradient(90deg, #cc0000 0%, #ff4d4d 80%); }
-
-        /* 3. Energia: Laranja Vibrante */
-        .dia { background: linear-gradient(90deg, #e67e22 0%, #ff9f43 80%); }
-
-        /* 4. Tecnologia: Ciano */
-        .smartphones { background: linear-gradient(90deg, #0984e3 0%, #74b9ff 80%); }
-
-        /* 5. Performance: Grafite */
-        .tech { background: linear-gradient(90deg, #2d3436 0%, #636e72 80%); }
-
-        /* 6. Imersão: Roxo Índigo */
-        .games { background: linear-gradient(90deg, #6c5ce7 0%, #a29bfe 80%); }
-
-        /* 7. Resistência: Âmbar/Marrom */
-        .ferramentas { background: linear-gradient(90deg, #d35400 0%, #e67e22 80%); }
-
-        /* 8. Renovação: Verde Esmeralda */
-        .auto { background: linear-gradient(90deg, #00b894 0%, #55efc4 80%); }
-
-        /* 9. Apetite: Carmesim */
-        .cozinha { background: linear-gradient(90deg, #d63031 0%, #ff7675 80%); }
-
-        /* 10. Segurança: Verde Petróleo */
-        .casa { background: linear-gradient(90deg, #006266 0%, #1289A7 80%); }
-
-        /* 11. Cuidado: Rosa Pink */
-        .beleza { background: linear-gradient(90deg, #e84393 0%, #fd79a8 80%); }
-
-        /* 12. Elegância: Cinza Prata */
-        .recomendacoes { 
-            background: linear-gradient(90deg, #b2bec3 0%, #dfe6e9 80%); 
-            color: #2d3436; 
-            text-shadow: none; 
-        }
-
-        footer { 
-            text-align: center; 
-            font-size: 0.7rem; 
-            color: #888; 
-            padding: 20px; 
-            line-height: 1.6; 
-        }
+        footer { text-align: center; font-size: 0.7rem; color: #888; padding: 20px; line-height: 1.6; }
     </style>
 </head>
 <body>
@@ -143,15 +109,14 @@
             <span class="curadoria">CURADORIA</span> 
             <span class="ofertas">OFERTAS BR</span>
         </h1>
-        <p class="brand-bio">Filtramos as melhores oportunidades do Mercado Livre para garantir que você compre o produto certo pelo melhor preço.</p>
+        <p class="brand-bio">O filtro inteligente que seleciona os melhores achados e ofertas reais do Mercado Livre para facilitar sua escolha.</p>
     </header>
 
     <div class="container">
         
         <a href="top-produtos.html" class="btn btn-top">🏆 TOP RECOMENDADOS 2026</a>
-
-        <a href="https://www.mercadolivre.com.br/social/3320240820164715/lists/cc3d4e1e-f905-4e3a-8a13-bccf0d8fa292?matt_tool=90099290&forceInApp=true" class="btn relampago">⚡ Ofertas Relâmpago</a>
-        <a href="https://www.mercadolivre.com.br/social/3320240820164715/lists/d7e6ff28-26e3-46ed-bc6c-6192a3db33c2?matt_tool=90099290&forceInApp=true" class="btn dia">📅 Ofertas do Dia</a>
+        
+        <a href="https://www.mercadolivre.com.br/social/3320240820164715/lists/ffd9f510-8713-4953-8c85-cff341ed7dcc?matt_tool=90099290&forceInApp=true" class="btn datas-especiais">📅 Datas Especiais & Sazonais</a>
 
         <div style="height: 10px;"></div>
 
@@ -163,10 +128,15 @@
         <a href="https://www.mercadolivre.com.br/social/3320240820164715/lists/df04e628-dcf1-4468-ab2b-ea34f0e37f2b?matt_tool=90099290&forceInApp=true" class="btn cozinha">🥘 Gastronomia & Cozinha Criativa</a>
         <a href="https://www.mercadolivre.com.br/social/3320240820164715/lists/fb2a6cc3-64d8-4862-b510-f6dbee3c1473?matt_tool=90099290&forceInApp=true" class="btn casa">🏠 Smart Home & Casa Inteligente</a>
         <a href="https://www.mercadolivre.com.br/social/3320240820164715/lists/b9e36601-1fd6-4872-832b-2c3bb6d053d9?matt_tool=90099290&forceInApp=true" class="btn beleza">🧴 Cuidados Pessoais & Bem-Estar</a>
+        
+        <a href="https://www.mercadolivre.com.br/social/3320240820164715/lists/275bd9b7-d2c5-44d3-9d9b-d573095a8ff4?matt_tool=90099290&forceInApp=true" class="btn moda">👕 Moda & Vestuário</a>
+        <a href="https://www.mercadolivre.com.br/social/3320240820164715/lists/97bc20e8-a834-4360-ad48-cacf6fd7e0bd?matt_tool=90099290&forceInApp=true" class="btn esportes">⚽ Artigos Esportivos</a>
+        <a href="https://www.mercadolivre.com.br/social/3320240820164715/lists/3891b70d-2ff9-4470-8645-4bca68ef7c60?matt_tool=90099290&forceInApp=true" class="btn bebe">👶 Bebê & Infantil</a>
+        
         <a href="https://www.mercadolivre.com.br/social/3320240820164715/lists/f1d9e49e-c5d0-4b79-9f11-26cd679eac89?matt_tool=90099290&forceInApp=true" class="btn recomendacoes">⭐ Seleção Especial & Favoritos</a>
 
         <footer>
-            #publi | Como afiliado do Mercado Livre, recebo comissão por compras qualificadas realizadas através dos links acima, sem custo adicional para o comprador. Conteúdo em conformidade com as normas do CONAR.
+            #publi | Como embaixador e afiliado do Mercado Livre, recebo comissão por compras qualificadas através dos links acima. Conteúdo em conformidade com as normas do CONAR.
         </footer>
     </div>
 </body>
