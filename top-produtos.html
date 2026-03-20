@@ -3,160 +3,480 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Top Recomendados 2026 | Curadoria Ofertas BR</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet">
+    <title>Curadoria Ofertas BR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-body: #f5f7f9;
-            --meli-yellow: #fff159;
-            --meli-blue: #3483fa;
-            --text-main: #333333;
+            --yellow: #FFE000;
+            --blue: #1D4ED8;
+            --dark: #0f0f10;
+            --mid: #1a1a1e;
+            --surface: #222228;
+            --border: rgba(255,255,255,0.07);
+            --text: #f0f0f0;
+            --muted: #888;
         }
 
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
         body {
-            background-color: var(--bg-body);
-            color: var(--text-main);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            margin: 0;
-            padding: 0;
+            background-color: var(--dark);
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
+            overflow-x: hidden;
         }
 
-        /* HEADER PADRONIZADO COM O INDEX */
+        /* NOISE TEXTURE OVERLAY */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* GLOW BG */
+        body::after {
+            content: '';
+            position: fixed;
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 400px;
+            background: radial-gradient(ellipse, rgba(255,224,0,0.12) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* HEADER */
         header {
+            position: relative;
+            z-index: 1;
             width: 100%;
-            padding: 30px 0 20px;
-            background-color: var(--meli-yellow);
+            max-width: 430px;
+            padding: 48px 24px 32px;
             text-align: center;
-            border-bottom: 1px solid #e6d700;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
-        .back-link {
-            display: inline-block;
-            color: var(--meli-blue);
-            text-decoration: none;
-            font-size: 0.8rem;
-            font-weight: 800;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-
-        .logo-box { width: 40px; display: block; margin: 0 auto 10px; }
-
-        .brand-text {
-            font-size: 1.4rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-            margin: 0;
-            display: flex;
-            justify-content: center;
+        .badge {
+            display: inline-flex;
             align-items: center;
-            gap: 5px;
-        }
-
-        .brand-text .curadoria { font-weight: 900; color: #1a1a1b; }
-        .brand-text .ofertas { color: var(--meli-blue); }
-
-        .container { width: 92%; max-width: 430px; padding-bottom: 50px; }
-
-        h2 {
-            text-align: center;
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            color: #555;
+            gap: 6px;
+            background: rgba(255,224,0,0.12);
+            border: 1px solid rgba(255,224,0,0.25);
+            color: var(--yellow);
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            padding: 5px 12px;
+            border-radius: 999px;
+            margin-bottom: 20px;
         }
 
-        /* BOTÃO DE RANKING PADRONIZADO */
-        .btn-rank {
+        .badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--yellow);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.8); }
+        }
+
+        h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.4rem;
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -2px;
+            margin-bottom: 14px;
+        }
+
+        h1 .word1 { color: var(--text); }
+        h1 .word2 { color: var(--yellow); display: block; }
+
+        .bio {
+            font-size: 0.85rem;
+            color: var(--muted);
+            line-height: 1.6;
+            max-width: 300px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+
+        /* CONTAINER */
+        .container {
+            position: relative;
+            z-index: 1;
+            width: 92%;
+            max-width: 430px;
+            padding-bottom: 60px;
+        }
+
+        /* SECTION LABEL */
+        .section-label {
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin: 28px 0 12px 2px;
+        }
+
+        /* FEATURED BUTTON */
+        .btn-featured {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 18px;
-            margin-bottom: 14px;
+            padding: 20px 22px;
+            margin-bottom: 10px;
             text-decoration: none;
-            color: #ffffff;
-            border-radius: 12px;
+            background: var(--yellow);
+            border-radius: 14px;
+            transition: transform 0.15s ease, filter 0.15s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-featured::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 60%);
+        }
+
+        .btn-featured:active { transform: scale(0.97); filter: brightness(0.92); }
+
+        .btn-featured .label {
+            font-family: 'Syne', sans-serif;
+            font-size: 1rem;
             font-weight: 800;
-            font-size: 0.95rem;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
-            border: none;
+            color: #0f0f10;
+            letter-spacing: -0.5px;
         }
 
-        .btn-rank:active { transform: scale(0.96); filter: brightness(0.9); }
+        .btn-featured .sub {
+            font-size: 0.72rem;
+            font-weight: 500;
+            color: rgba(0,0,0,0.5);
+            display: block;
+            margin-top: 2px;
+        }
 
-        /* CORES EXCLUSIVAS CONFORME ESTUDO */
-        .parafusadeiras { background: linear-gradient(90deg, #d35400 0%, #e67e22 80%); }
-        
-        .status-badge {
+        .btn-featured .arrow {
+            font-size: 1.2rem;
+            color: rgba(0,0,0,0.4);
+        }
+
+        /* STANDARD BUTTON */
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 18px;
+            margin-bottom: 8px;
+            text-decoration: none;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:hover {
+            background: #2a2a32;
+            border-color: rgba(255,255,255,0.13);
+        }
+
+        .btn:active { transform: scale(0.97); }
+
+        .btn-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .btn-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .btn-text .name {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.3px;
+        }
+
+        .btn-text .desc {
+            font-size: 0.7rem;
+            color: var(--muted);
+            font-weight: 400;
+            display: block;
+            margin-top: 1px;
+        }
+
+        .btn-arrow {
+            font-size: 0.85rem;
+            color: var(--muted);
+            flex-shrink: 0;
+        }
+
+        /* ICON COLORS */
+        .ic-datas    { background: rgba(168,85,247,0.18); }
+        .ic-mobile   { background: rgba(14,165,233,0.18); }
+        .ic-tech     { background: rgba(99,102,241,0.18); }
+        .ic-games    { background: rgba(139,92,246,0.18); }
+        .ic-tools    { background: rgba(249,115,22,0.18); }
+        .ic-auto     { background: rgba(16,185,129,0.18); }
+        .ic-cozinha  { background: rgba(239,68,68,0.18); }
+        .ic-casa     { background: rgba(6,182,212,0.18); }
+        .ic-beleza   { background: rgba(236,72,153,0.18); }
+        .ic-moda     { background: rgba(148,163,184,0.18); }
+        .ic-esportes { background: rgba(34,197,94,0.18); }
+        .ic-bebe     { background: rgba(56,189,248,0.18); }
+        .ic-fav      { background: rgba(251,191,36,0.18); }
+
+        /* DIVIDER */
+        .divider {
+            height: 1px;
+            background: var(--border);
+            margin: 20px 0;
+        }
+
+        /* FOOTER */
+        footer {
+            position: relative;
+            z-index: 1;
+            text-align: center;
             font-size: 0.65rem;
-            background-color: rgba(255,255,255,0.2);
-            padding: 4px 8px;
-            border-radius: 4px;
-            text-transform: uppercase;
-            border: 1px solid rgba(255,255,255,0.3);
+            color: #555;
+            padding: 0 24px 36px;
+            max-width: 380px;
+            line-height: 1.7;
         }
 
-        /* ESTILO PARA ITENS EM BREVE */
-        .coming-soon {
-            background: #e0e0e0;
-            color: #999;
-            text-shadow: none;
-            box-shadow: none;
-            pointer-events: none;
-            opacity: 0.7;
+        /* ENTRANCE ANIMATION */
+        header, .container { animation: fadeUp 0.5s ease both; }
+        .container { animation-delay: 0.1s; }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
 
-        footer { 
-            text-align: center; 
-            font-size: 0.7rem; 
-            color: #888; 
-            padding: 20px; 
-            line-height: 1.6; 
+        .btn, .btn-featured {
+            animation: fadeUp 0.4s ease both;
         }
+        .btn:nth-child(1)  { animation-delay: 0.05s; }
+        .btn:nth-child(2)  { animation-delay: 0.10s; }
+        .btn:nth-child(3)  { animation-delay: 0.15s; }
+        .btn:nth-child(4)  { animation-delay: 0.20s; }
+        .btn:nth-child(5)  { animation-delay: 0.25s; }
+        .btn:nth-child(6)  { animation-delay: 0.30s; }
+        .btn:nth-child(7)  { animation-delay: 0.35s; }
+        .btn:nth-child(8)  { animation-delay: 0.40s; }
+        .btn:nth-child(9)  { animation-delay: 0.45s; }
+        .btn:nth-child(10) { animation-delay: 0.50s; }
+        .btn:nth-child(11) { animation-delay: 0.55s; }
+        .btn:nth-child(12) { animation-delay: 0.60s; }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="index.html" class="back-link">← Voltar para o Início</a>
-        <img src="https://em-content.zobj.net/source/apple/354/package_1f4e6.png" alt="📦" class="logo-box">
-        <h1 class="brand-text">
-            <span class="curadoria">CURADORIA</span> 
-            <span class="ofertas">OFERTAS BR</span>
+        <div class="badge">Atualizado 2026</div>
+        <h1>
+            <span class="word1">CURADORIA</span>
+            <span class="word2">OFERTAS BR</span>
         </h1>
+        <p class="bio">Garimpo real no Mercado Livre — só o que vale o clique, sem enrolação.</p>
     </header>
 
     <div class="container">
-        
-        <h2>🏆 Ranking Top 5 - 2026</h2>
 
-        <a href="https://www.mercadolivre.com.br/social/3320240820164715/lists/345b7274-6127-4f22-a901-398e057bef13?matt_tool=90099290&forceInApp=true" target="_blank" class="btn-rank parafusadeiras">
-            <span>🛠️ Top 5 Parafusadeiras</span>
-            <span class="status-badge">Ver Lista</span>
+        <!-- DESTAQUE -->
+        <a href="top-produtos.html" class="btn-featured">
+            <div>
+                <span class="label">🏆 TOP RECOMENDADOS 2026</span>
+                <span class="sub">A seleção mais cobiçada da curadoria</span>
+            </div>
+            <span class="arrow">→</span>
         </a>
 
-        <div class="btn-rank coming-soon">
-            <span>📺 Top 5 Smart TVs Gamer</span>
-            <span style="font-size: 0.6rem;">Em breve</span>
-        </div>
+        <div class="divider"></div>
+        <p class="section-label">Categorias</p>
 
-        <div class="btn-rank coming-soon">
-            <span>🥘 Top 5 Cozinha Criativa</span>
-            <span style="font-size: 0.6rem;">Em breve</span>
-        </div>
+        <a href="https://www.mercadolivre.com.br/social/3320240820164715/lists/ffd9f510-8713-4953-8c85-cff341ed7dcc?matt_tool=90099290&forceInApp=true" class="btn">
+            <div class="btn-left">
+                <div class="btn-icon ic-datas">📅</div>
+                <div class="btn-text">
+                    <span class="name">Datas Especiais & Sazonais</span>
+                    <span class="desc">Presentes, datas comemorativas e muito mais</span>
+                </div>
+            </div>
+            <span class="btn-arrow">›</span>
+        </a>
 
-        <footer>
-            #publi | Seleção de produtos baseada em dados de mercado e avaliações de compradores. Atualizado mensalmente.
-        </footer>
+        <a href="https://www.mercadolivre.com.br/social/3320240820164715/lists/792614dd-f412-4d23-8f2d-11aa1064a9e8?matt_tool=90099290&forceInApp=true" class="btn">
+            <div class="btn-left">
+                <div class="btn-icon ic-mobile">📱</div>
+                <div class="btn-text">
+                    <span class="name">Conectividade & Mobile</span>
+                    <span class="desc">Smartphones, acessórios e periféricos</span>
+                </div>
+            </div>
+            <span class="btn-arrow">›</span>
+        </a>
+
+        <a href="https://www.mercadolivre.com.br/social/3320240820164715/lists/7cdc8e80-86fa-4a1d-8c80-41ca7d5db900?matt_tool=90099290&forceInApp=true" class="btn">
+            <div class="btn-left">
+                <div class="btn-icon ic-tech">💻</div>
+                <div class="btn-text">
+                    <span class="name">Tecnologia & Setup High-Tech</span>
+                    <span class="desc">PCs, monitores, teclados e gadgets</span>
+                </div>
+            </div>
+            <span class="btn-arrow">›</span>
+        </a>
+
+        <a href="https://www.mercadolivre.com.br/social/3320240820164715/lists/c2d03a17-5d9c-46c2-a9e1-26930e4be715?matt_tool=90099290&forceInApp=true" class="btn">
+            <div class="btn-left">
+                <div class="btn-icon ic-games">🎮</div>
+                <div class="btn-text">
+                    <span class="name">Universo Gamer & Consoles</span>
+                    <span class="desc">Consoles, controles, cadeiras e headsets</span>
+                </div>
+            </div>
+            <span class="btn-arrow">›</span>
+        </a>
+
+        <a href="https://www.mercadolivre.com.br/social/3320240820164715/lists/a3802f52-a048-4334-aaed-f0cd4a68e1f2?matt_tool=90099290&forceInApp=true" class="btn">
+            <div class="btn-left">
+                <div class="btn-icon ic-tools">🛠️</div>
+                <div class="btn-text">
+                    <span class="name">Ferramentas & Workshop DIY</span>
+                    <span class="desc">Furadeiras, kits e equipamentos de oficina</span>
+                </div>
+            </div>
+            <span class="btn-arrow">›</span>
+        </a>
+
+        <a href="https://www.mercadolivre.com.br/social/3320240820164715/lists/f7f3ec7f-b588-4b6b-9ba5-301258548f35?matt_tool=90099290&forceInApp=true" class="btn">
+            <div class="btn-left">
+                <div class="btn-icon ic-auto">🚗</div>
+                <div class="btn-text">
+                    <span class="name">Estética & Acessórios Auto</span>
+                    <span class="desc">Produtos automotivos e acessórios</span>
+                </div>
+            </div>
+            <span class="btn-arrow">›</span>
+        </a>
+
+        <a href="https://www.mercadolivre.com.br/social/3320240820164715/lists/df04e628-dcf1-4468-ab2b-ea34f0e37f2b?matt_tool=90099290&forceInApp=true" class="btn">
+            <div class="btn-left">
+                <div class="btn-icon ic-cozinha">🥘</div>
+                <div class="btn-text">
+                    <span class="name">Gastronomia & Cozinha Criativa</span>
+                    <span class="desc">Utensílios, eletrodomésticos e gadgets culinários</span>
+                </div>
+            </div>
+            <span class="btn-arrow">›</span>
+        </a>
+
+        <a href="https://www.mercadolivre.com.br/social/3320240820164715/lists/fb2a6cc3-64d8-4862-b510-f6dbee3c1473?matt_tool=90099290&forceInApp=true" class="btn">
+            <div class="btn-left">
+                <div class="btn-icon ic-casa">🏠</div>
+                <div class="btn-text">
+                    <span class="name">Smart Home & Casa Inteligente</span>
+                    <span class="desc">Automação, decoração e organização</span>
+                </div>
+            </div>
+            <span class="btn-arrow">›</span>
+        </a>
+
+        <a href="https://www.mercadolivre.com.br/social/3320240820164715/lists/b9e36601-1fd6-4872-832b-2c3bb6d053d9?matt_tool=90099290&forceInApp=true" class="btn">
+            <div class="btn-left">
+                <div class="btn-icon ic-beleza">🧴</div>
+                <div class="btn-text">
+                    <span class="name">Cuidados Pessoais & Bem-Estar</span>
+                    <span class="desc">Skincare, saúde e autocuidado</span>
+                </div>
+            </div>
+            <span class="btn-arrow">›</span>
+        </a>
+
+        <a href="https://www.mercadolivre.com.br/social/3320240820164715/lists/275bd9b7-d2c5-44d3-9d9b-d573095a8ff4?matt_tool=90099290&forceInApp=true" class="btn">
+            <div class="btn-left">
+                <div class="btn-icon ic-moda">👕</div>
+                <div class="btn-text">
+                    <span class="name">Moda & Vestuário</span>
+                    <span class="desc">Roupas, calçados e acessórios</span>
+                </div>
+            </div>
+            <span class="btn-arrow">›</span>
+        </a>
+
+        <a href="https://www.mercadolivre.com.br/social/3320240820164715/lists/97bc20e8-a834-4360-ad48-cacf6fd7e0bd?matt_tool=90099290&forceInApp=true" class="btn">
+            <div class="btn-left">
+                <div class="btn-icon ic-esportes">⚽</div>
+                <div class="btn-text">
+                    <span class="name">Artigos Esportivos</span>
+                    <span class="desc">Equipamentos, roupas e suplementos</span>
+                </div>
+            </div>
+            <span class="btn-arrow">›</span>
+        </a>
+
+        <a href="https://www.mercadolivre.com.br/social/3320240820164715/lists/3891b70d-2ff9-4470-8645-4bca68ef7c60?matt_tool=90099290&forceInApp=true" class="btn">
+            <div class="btn-left">
+                <div class="btn-icon ic-bebe">👶</div>
+                <div class="btn-text">
+                    <span class="name">Bebê & Infantil</span>
+                    <span class="desc">Fraldas, brinquedos, segurança e enxoval</span>
+                </div>
+            </div>
+            <span class="btn-arrow">›</span>
+        </a>
+
+        <div class="divider"></div>
+
+        <a href="https://www.mercadolivre.com.br/social/3320240820164715/lists/f1d9e49e-c5d0-4b79-9f11-26cd679eac89?matt_tool=90099290&forceInApp=true" class="btn">
+            <div class="btn-left">
+                <div class="btn-icon ic-fav">⭐</div>
+                <div class="btn-text">
+                    <span class="name">Seleção Especial & Favoritos</span>
+                    <span class="desc">Os preferidos da curadoria</span>
+                </div>
+            </div>
+            <span class="btn-arrow">›</span>
+        </a>
+
     </div>
+
+    <footer>
+        #publi · Como afiliado do Mercado Livre, recebo comissão por compras qualificadas através dos links acima. Conteúdo em conformidade com as normas do CONAR.
+    </footer>
 
 </body>
 </html>
