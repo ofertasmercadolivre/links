@@ -3,141 +3,358 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curadoria Ofertas BR</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet">
+    <title>Top Recomendados 2026 | Curadoria Ofertas BR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-body: #f5f7f9;
-            --bg-card: #ffffff;
-            --meli-yellow: #fff159;
-            --meli-blue: #3483fa;
-            --text-main: #333333;
+            --yellow: #FFE000;
+            --dark: #0f0f10;
+            --mid: #1a1a1e;
+            --surface: #222228;
+            --surface2: #2a2a32;
+            --border: rgba(255,255,255,0.07);
+            --text: #f0f0f0;
+            --muted: #888;
         }
 
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
         body {
-            background-color: var(--bg-body);
-            color: var(--text-main);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            margin: 0;
-            padding: 0;
+            background-color: var(--dark);
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
+            overflow-x: hidden;
         }
 
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 400px;
+            background: radial-gradient(ellipse, rgba(255,224,0,0.10) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* HEADER */
         header {
+            position: relative;
+            z-index: 1;
             width: 100%;
-            padding: 30px 0;
-            background-color: var(--meli-yellow);
+            max-width: 430px;
+            padding: 32px 24px 28px;
             text-align: center;
-            border-bottom: 1px solid #e6d700;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
-        .logo-box { width: 45px; display: block; margin: 0 auto 10px; }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 28px;
+            transition: color 0.15s;
+        }
 
-        .brand-text {
-            font-size: 1.6rem;
-            font-weight: 800;
-            letter-spacing: -1.2px;
-            margin: 0;
+        .back-link:hover { color: var(--text); }
+
+        .trophy-wrap {
+            width: 56px;
+            height: 56px;
+            background: rgba(255,224,0,0.12);
+            border: 1px solid rgba(255,224,0,0.2);
+            border-radius: 16px;
             display: flex;
+            align-items: center;
             justify-content: center;
+            font-size: 1.6rem;
+            margin: 0 auto 16px;
+        }
+
+        h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            letter-spacing: -1.5px;
+            line-height: 1.05;
+            margin-bottom: 10px;
+        }
+
+        h1 span { color: var(--yellow); }
+
+        .subtitle {
+            font-size: 0.82rem;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        /* CONTAINER */
+        .container {
+            position: relative;
+            z-index: 1;
+            width: 92%;
+            max-width: 430px;
+            padding-bottom: 60px;
+        }
+
+        .section-label {
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin: 4px 0 14px 2px;
+        }
+
+        /* RANK CARD — ATIVO */
+        .rank-card {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px 18px;
+            margin-bottom: 10px;
+            text-decoration: none;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            transition: background 0.15s, transform 0.15s, border-color 0.15s;
+            animation: fadeUp 0.4s ease both;
+        }
+
+        .rank-card:hover {
+            background: var(--surface2);
+            border-color: rgba(255,255,255,0.13);
+        }
+
+        .rank-card:active { transform: scale(0.97); }
+
+        /* RANK CARD — EM BREVE */
+        .rank-card.soon {
+            opacity: 0.4;
+            pointer-events: none;
+            cursor: default;
+        }
+
+        /* NÚMERO DO RANKING */
+        .rank-num {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--muted);
+            min-width: 32px;
+            text-align: center;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+
+        .rank-card:not(.soon) .rank-num { color: var(--yellow); }
+
+        /* ÍCONE */
+        .rank-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .ic-tools   { background: rgba(249,115,22,0.18); }
+        .ic-tv      { background: rgba(99,102,241,0.18); }
+        .ic-cozinha { background: rgba(239,68,68,0.18); }
+
+        /* INFO */
+        .rank-info { flex: 1; min-width: 0; }
+
+        .rank-name {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.3px;
+            display: block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .rank-meta {
+            font-size: 0.7rem;
+            color: var(--muted);
+            margin-top: 2px;
+            display: flex;
             align-items: center;
             gap: 6px;
         }
 
-        .brand-text .curadoria { font-weight: 900; color: #1a1a1b; }
-        .brand-text .ofertas { color: var(--meli-blue); }
+        .dot {
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: var(--muted);
+            opacity: 0.5;
+        }
 
-        .brand-bio {
-            font-size: 0.82rem;
-            color: #333;
-            max-width: 320px;
-            margin: 12px auto 0;
+        /* BADGE */
+        .rank-badge {
+            font-size: 0.62rem;
             font-weight: 600;
-            line-height: 1.4;
-            padding: 0 15px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 4px 9px;
+            border-radius: 6px;
+            flex-shrink: 0;
         }
 
-        .container { width: 92%; max-width: 430px; padding-bottom: 50px; }
+        .badge-live {
+            background: rgba(255,224,0,0.15);
+            border: 1px solid rgba(255,224,0,0.3);
+            color: var(--yellow);
+        }
 
-        .btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 18px;
-            margin-bottom: 14px;
-            text-decoration: none;
-            color: #ffffff;
+        .badge-soon {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border);
+            color: var(--muted);
+        }
+
+        /* DIVIDER */
+        .divider {
+            height: 1px;
+            background: var(--border);
+            margin: 22px 0;
+        }
+
+        /* INFO BOX */
+        .info-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
             border-radius: 12px;
-            font-weight: 800;
-            font-size: 0.95rem;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
-            border: none;
+            padding: 16px 18px;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
         }
 
-        .btn:active { transform: scale(0.96); filter: brightness(0.9); }
+        .info-box .icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
 
-        /* PALETA DE CORES (GRADIENTE 80%) */
-        .btn-top { background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 80%); } /* Azul Royal */
-        .datas-especiais { background: linear-gradient(90deg, #6b21a8 0%, #a855f7 80%); } /* Roxo Intenso */
-        .smartphones { background: linear-gradient(90deg, #0984e3 0%, #74b9ff 80%); } /* Ciano */
-        .tech { background: linear-gradient(90deg, #2d3436 0%, #636e72 80%); } /* Grafite */
-        .games { background: linear-gradient(90deg, #6c5ce7 0%, #a29bfe 80%); } /* Roxo/Azul */
-        .ferramentas { background: linear-gradient(90deg, #d35400 0%, #e67e22 80%); } /* Âmbar */
-        .auto { background: linear-gradient(90deg, #00b894 0%, #55efc4 80%); } /* Verde */
-        .cozinha { background: linear-gradient(90deg, #d63031 0%, #ff7675 80%); } /* Carmesim */
-        .casa { background: linear-gradient(90deg, #006266 0%, #1289A7 80%); } /* Petróleo */
-        .beleza { background: linear-gradient(90deg, #e84393 0%, #fd79a8 80%); } /* Pink */
-        .moda { background: linear-gradient(90deg, #2c3e50 0%, #34495e 80%); } /* Navy (Elegância) */
-        .esportes { background: linear-gradient(90deg, #15803d 0%, #22c55e 80%); } /* Verde Esportivo */
-        .bebe { background: linear-gradient(90deg, #0284c7 0%, #38bdf8 80%); } /* Azul Bebê */
-        .recomendacoes { background: linear-gradient(90deg, #b2bec3 0%, #dfe6e9 80%); color: #2d3436; text-shadow: none; }
+        .info-box p {
+            font-size: 0.75rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
 
-        footer { text-align: center; font-size: 0.7rem; color: #888; padding: 20px; line-height: 1.6; }
+        /* FOOTER */
+        footer {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            font-size: 0.65rem;
+            color: #555;
+            padding: 0 24px 36px;
+            max-width: 380px;
+            line-height: 1.7;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(14px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        header { animation: fadeUp 0.45s ease both; }
+        .container { animation: fadeUp 0.45s ease 0.08s both; }
+
+        .rank-card:nth-child(1) { animation-delay: 0.05s; }
+        .rank-card:nth-child(2) { animation-delay: 0.12s; }
+        .rank-card:nth-child(3) { animation-delay: 0.19s; }
     </style>
 </head>
 <body>
 
     <header>
-        <img src="https://em-content.zobj.net/source/apple/354/package_1f4e6.png" alt="📦" class="logo-box">
-        <h1 class="brand-text">
-            <span class="curadoria">CURADORIA</span> 
-            <span class="ofertas">OFERTAS BR</span>
-        </h1>
-        <p class="brand-bio">Os melhores achados e ofertas reais do Mercado Livre para facilitar sua escolha.</p>
+        <a href="index.html" class="back-link">← Voltar ao início</a>
+        <div class="trophy-wrap">🏆</div>
+        <h1>TOP<br><span>RECOMENDADOS</span><br>2026</h1>
+        <p class="subtitle">Rankings baseados em avaliações reais<br>e dados de compra do Mercado Livre</p>
     </header>
 
     <div class="container">
-        
-        <a href="top-produtos.html" class="btn btn-top">🏆 TOP RECOMENDADOS 2026</a>
-        
-        <a href="https://www.mercadolivre.com.br/social/3320240820164715/lists/ffd9f510-8713-4953-8c85-cff341ed7dcc?matt_tool=90099290&forceInApp=true" class="btn datas-especiais">📅 Datas Especiais & Sazonais</a>
 
-        <div style="height: 10px;"></div>
+        <p class="section-label">Rankings disponíveis</p>
 
-        <a href="https://www.mercadolivre.com.br/social/3320240820164715/lists/792614dd-f412-4d23-8f2d-11aa1064a9e8?matt_tool=90099290&forceInApp=true" class="btn smartphones">📱 Conectividade & Mobile</a>
-        <a href="https://www.mercadolivre.com.br/social/3320240820164715/lists/7cdc8e80-86fa-4a1d-8c80-41ca7d5db900?matt_tool=90099290&forceInApp=true" class="btn tech">💻 Tecnologia & Setup High-Tech</a>
-        <a href="https://www.mercadolivre.com.br/social/3320240820164715/lists/c2d03a17-5d9c-46c2-a9e1-26930e4be715?matt_tool=90099290&forceInApp=true" class="btn games">🎮 Universo Gamer & Consoles</a>
-        <a href="https://www.mercadolivre.com.br/social/3320240820164715/lists/a3802f52-a048-4334-aaed-f0cd4a68e1f2?matt_tool=90099290&forceInApp=true" class="btn ferramentas">🛠️ Ferramentas & Workshop DIY</a>
-        <a href="https://www.mercadolivre.com.br/social/3320240820164715/lists/f7f3ec7f-b588-4b6b-9ba5-301258548f35?matt_tool=90099290&forceInApp=true" class="btn auto">🚗 Estética & Acessórios Auto</a>
-        <a href="https://www.mercadolivre.com.br/social/3320240820164715/lists/df04e628-dcf1-4468-ab2b-ea34f0e37f2b?matt_tool=90099290&forceInApp=true" class="btn cozinha">🥘 Gastronomia & Cozinha Criativa</a>
-        <a href="https://www.mercadolivre.com.br/social/3320240820164715/lists/fb2a6cc3-64d8-4862-b510-f6dbee3c1473?matt_tool=90099290&forceInApp=true" class="btn casa">🏠 Smart Home & Casa Inteligente</a>
-        <a href="https://www.mercadolivre.com.br/social/3320240820164715/lists/b9e36601-1fd6-4872-832b-2c3bb6d053d9?matt_tool=90099290&forceInApp=true" class="btn beleza">🧴 Cuidados Pessoais & Bem-Estar</a>
-        
-        <a href="https://www.mercadolivre.com.br/social/3320240820164715/lists/275bd9b7-d2c5-44d3-9d9b-d573095a8ff4?matt_tool=90099290&forceInApp=true" class="btn moda">👕 Moda & Vestuário</a>
-        <a href="https://www.mercadolivre.com.br/social/3320240820164715/lists/97bc20e8-a834-4360-ad48-cacf6fd7e0bd?matt_tool=90099290&forceInApp=true" class="btn esportes">⚽ Artigos Esportivos</a>
-        <a href="https://www.mercadolivre.com.br/social/3320240820164715/lists/3891b70d-2ff9-4470-8645-4bca68ef7c60?matt_tool=90099290&forceInApp=true" class="btn bebe">👶 Bebê & Infantil</a>
-        
-        <a href="https://www.mercadolivre.com.br/social/3320240820164715/lists/f1d9e49e-c5d0-4b79-9f11-26cd679eac89?matt_tool=90099290&forceInApp=true" class="btn recomendacoes">⭐ Seleção Especial & Favoritos</a>
+        <a href="https://www.mercadolivre.com.br/social/3320240820164715/lists/345b7274-6127-4f22-a901-398e057bef13?matt_tool=90099290&forceInApp=true" target="_blank" class="rank-card">
+            <span class="rank-num">01</span>
+            <div class="rank-icon ic-tools">🛠️</div>
+            <div class="rank-info">
+                <span class="rank-name">Top 5 Parafusadeiras</span>
+                <div class="rank-meta">
+                    <span>5 produtos</span>
+                    <div class="dot"></div>
+                    <span>Atualizado 2026</span>
+                </div>
+            </div>
+            <span class="rank-badge badge-live">Ver lista</span>
+        </a>
 
-        <footer>
-            #publi | Como afiliado do Mercado Livre, recebo comissão por compras qualificadas através dos links acima. Conteúdo em conformidade com as normas do CONAR.
-        </footer>
+        <div class="rank-card soon">
+            <span class="rank-num">02</span>
+            <div class="rank-icon ic-tv">📺</div>
+            <div class="rank-info">
+                <span class="rank-name">Top 5 Smart TVs Gamer</span>
+                <div class="rank-meta">
+                    <span>Em produção</span>
+                </div>
+            </div>
+            <span class="rank-badge badge-soon">Em breve</span>
+        </div>
+
+        <div class="rank-card soon">
+            <span class="rank-num">03</span>
+            <div class="rank-icon ic-cozinha">🥘</div>
+            <div class="rank-info">
+                <span class="rank-name">Top 5 Cozinha Criativa</span>
+                <div class="rank-meta">
+                    <span>Em produção</span>
+                </div>
+            </div>
+            <span class="rank-badge badge-soon">Em breve</span>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="info-box">
+            <span class="icon">📋</span>
+            <p>Rankings atualizados mensalmente com base em avaliações de compradores e desempenho de vendas. Novos rankings são adicionados regularmente.</p>
+        </div>
+
     </div>
+
+    <footer>
+        #publi · Seleção baseada em dados de mercado e avaliações de compradores reais. Conteúdo em conformidade com as normas do CONAR.
+    </footer>
+
 </body>
 </html>
